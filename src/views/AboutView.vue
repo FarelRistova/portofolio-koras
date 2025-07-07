@@ -16,7 +16,7 @@
 
       <!-- Kanan: Foto -->
       <div class="about-right">
-        <img src="../assets/pp.jpg" alt="Profile Photo" class="profile-photo" />
+        <img src="/assets/pp.jpg" alt="Profile Photo" class="profile-photo" />
       </div>
     </div>
   </section>

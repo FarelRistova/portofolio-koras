@@ -14,13 +14,13 @@
         <h2>Social Media</h2>
         <div class="social-icons">
           <a href="https://www.instagram.com/ristvrss_" target="_blank" aria-label="Instagram">
-            <img src="../assets/instagram.svg" alt="Instagram" />
+            <img src="/assets/instagram.svg" alt="Instagram" />
           </a>
           <a href="https://www.linkedin.com/in/farelristova77" target="_blank" aria-label="LinkedIn">
-            <img src="../assets/linkedin.svg" alt="LinkedIn" />
+            <img src="/assets/linkedin.svg" alt="LinkedIn" />
           </a>
           <a href="https://github.com/FarelRistova" target="_blank" aria-label="GitHub">
-            <img src="../assets/github.svg" alt="GitHub" />
+            <img src="/assets/github.svg" alt="GitHub" />
           </a>
         </div>
       </div>

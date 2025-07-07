@@ -34,13 +34,6 @@
 </template>
 
 <script>
-import perpusImage from '../assets/perpus1.png';
-import kasirImage from '../assets/kasir1.png';
-import pengaduanImage from '../assets/pengaduan1.png';
-import todoImage from '../assets/todo1.png';
-import plantsImage from '../assets/plants1.png';
-import apotekImage from '../assets/apotek1.png';
-
 export default {
   name: 'ProjectView',
   data() {
@@ -52,42 +45,42 @@ export default {
           shortDesc: 'Website untuk manajemen peminjaman buku di sekolah.',
           fullDesc:
             'Aplikasi ini membantu siswa meminjam dan mengembalikan buku dengan mudah. Fitur lengkap seperti riwayat, pencarian, dan dashboard admin. By Vue.js',
-          image: perpusImage
+          image: '/assets/perpus1.png'
         },
         {
           title: 'Kasir Toko',
           shortDesc: 'Aplikasi kasir berbasis Flutter untuk toko kecil.',
           fullDesc:
             'Mencatat transaksi, menghitung kembalian, menampilkan struk dan manajemen produk. Cocok untuk UMKM.',
-          image: kasirImage
+          image: '/assets/kasir1.png'
         },
         {
           title: 'Aplikasi Pengaduan',
           shortDesc: 'Aplikasi web untuk menerima dan menanggapi pengaduan masyarakat.',
           fullDesc:
             'Dilengkapi dengan fitur CRUD laporan, status laporan, dan panel admin untuk tindak lanjut aduan. By Laravel',
-          image: pengaduanImage
+          image: '/assets/pengaduan1.png'
         },
         {
           title: 'Aplikasi Todo List',
           shortDesc: 'Aplikasi web untuk mengelola daftar tugas harian atau pun rencana jangka panjang.',
           fullDesc:
             'Dilengkapi dengan fitur penambahan, pengeditan, dan penghapusan tugas, serta penandaan tugas sebagai selesai. By Flutter',
-          image: todoImage
+          image: '/assets/todo1.png'
         },
         {
           title: 'Plants App',
           shortDesc: 'Aplikasi web untuk mengelola tanaman dan pertumbuhannya.',
           fullDesc:
             'Dilengkapi dengan fitur penambahan, pengeditan, dan penghapusan, serta penjelasan setiap pertumbuhan. By Laravel',
-          image: plantsImage
+          image: '/assets/plants1.png'
         },
         {
           title: 'Apotek App',
           shortDesc: 'Aplikasi web untuk manajemen pelayanan apotek.',
           fullDesc:
             'Aplikasi ini memungkinkan pengguna untuk mengelola stok obat, transaksi penjualan, dan laporan penjualan, serta fitur pencarian obat. Dan juga dilengkapi dengan fitur autentikasi untuk admin dan kasir. By Laravel',
-          image: apotekImage
+          image: '/assets/apotek1.png'
         }
       ]
     };
@@ -130,7 +123,6 @@ export default {
   align-items: center;
 }
 
-/* Card Style */
 .project-card {
   display: flex;
   align-items: center;
@@ -155,7 +147,6 @@ export default {
   flex-direction: row-reverse;
 }
 
-/* Gambar Project */
 .project-image {
   width: 280px;
   height: auto;
@@ -182,7 +173,6 @@ export default {
   line-height: 1.6;
 }
 
-/* Modal */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -209,8 +199,14 @@ export default {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .modal-image {
@@ -236,7 +232,6 @@ export default {
   background-color: #4338ca;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .project-card {
     flex-direction: column;

@@ -8,32 +8,32 @@
     <div class="slider-container">
       <div class="slide-track">
         <!-- Asli -->
-        <img src="../assets/html.svg" alt="HTML" class="skill-logo" />
-        <img src="../assets/css.svg" alt="CSS" class="skill-logo" />
-        <img src="../assets/js.svg" alt="JavaScript" class="skill-logo" />
-        <img src="../assets/vue.svg" alt="Vue" class="skill-logo" />
-        <img src="../assets/react.svg" alt="React" class="skill-logo" />
-        <img src="../assets/flutter.svg" alt="Flutter" class="skill-logo" />
-        <img src="../assets/py.svg" alt="Python" class="skill-logo" />
-        <img src="../assets/laravel.svg" alt="Laravel" class="skill-logo" />
+        <img src="/assets/html.svg" alt="HTML" class="skill-logo" />
+        <img src="/assets/css.svg" alt="CSS" class="skill-logo" />
+        <img src="/assets/js.svg" alt="JavaScript" class="skill-logo" />
+        <img src="/assets/vue.svg" alt="Vue" class="skill-logo" />
+        <img src="/assets/react.svg" alt="React" class="skill-logo" />
+        <img src="/assets/flutter.svg" alt="Flutter" class="skill-logo" />
+        <img src="/assets/py.svg" alt="Python" class="skill-logo" />
+        <img src="/assets/laravel.svg" alt="Laravel" class="skill-logo" />
 
         <!-- Duplikat untuk animasi -->
-        <img src="../assets/html.svg" alt="HTML" class="skill-logo" />
-        <img src="../assets/css.svg" alt="CSS" class="skill-logo" />
-        <img src="../assets/js.svg" alt="JavaScript" class="skill-logo" />
-        <img src="../assets/vue.svg" alt="Vue" class="skill-logo" />
-        <img src="../assets/react.svg" alt="React" class="skill-logo" />
-        <img src="../assets/flutter.svg" alt="Flutter" class="skill-logo" />
-        <img src="../assets/py.svg" alt="Python" class="skill-logo" />
-        <img src="../assets/laravel.svg" alt="Laravel" class="skill-logo" />
+        <img src="/assets/html.svg" alt="HTML" class="skill-logo" />
+        <img src="/assets/css.svg" alt="CSS" class="skill-logo" />
+        <img src="/assets/js.svg" alt="JavaScript" class="skill-logo" />
+        <img src="/assets/vue.svg" alt="Vue" class="skill-logo" />
+        <img src="/assets/react.svg" alt="React" class="skill-logo" />
+        <img src="/assets/flutter.svg" alt="Flutter" class="skill-logo" />
+        <img src="/assets/py.svg" alt="Python" class="skill-logo" />
+        <img src="/assets/laravel.svg" alt="Laravel" class="skill-logo" />
       </div>
     </div>
 
-    <!-- Tools Section - Improved Layout -->
+    <!-- Tools Section -->
     <div class="tools-container">
       <div class="tool-card">
         <div class="tool-icon-wrapper">
-          <img src="../assets/github.svg" alt="GitHub" class="tool-icon" />
+          <img src="/assets/github.svg" alt="GitHub" class="tool-icon" />
         </div>
         <div class="tool-info">
           <h3>GitHub</h3>
@@ -43,7 +43,7 @@
 
       <div class="tool-card">
         <div class="tool-icon-wrapper">
-          <img src="../assets/vscode.svg" alt="VS Code" class="tool-icon" />
+          <img src="/assets/vscode.svg" alt="VS Code" class="tool-icon" />
         </div>
         <div class="tool-info">
           <h3>Visual Studio Code</h3>
@@ -53,7 +53,7 @@
 
       <div class="tool-card">
         <div class="tool-icon-wrapper">
-          <img src="../assets/trello.svg" alt="Trello" class="tool-icon" />
+          <img src="/assets/trello.svg" alt="Trello" class="tool-icon" />
         </div>
         <div class="tool-info">
           <h3>Trello</h3>
@@ -63,7 +63,7 @@
 
       <div class="tool-card">
         <div class="tool-icon-wrapper">
-          <img src="../assets/postman.svg" alt="Postman" class="tool-icon" />
+          <img src="/assets/postman.svg" alt="Postman" class="tool-icon" />
         </div>
         <div class="tool-info">
           <h3>Postman</h3>
@@ -73,7 +73,7 @@
 
       <div class="tool-card">
         <div class="tool-icon-wrapper">
-          <img src="../assets/notion.svg" alt="Notion" class="tool-icon" />
+          <img src="/assets/notion.svg" alt="Notion" class="tool-icon" />
         </div>
         <div class="tool-info">
           <h3>Notion</h3>
@@ -83,7 +83,7 @@
 
       <div class="tool-card">
         <div class="tool-icon-wrapper">
-          <img src="../assets/figma.svg" alt="Figma" class="tool-icon" />
+          <img src="/assets/figma.svg" alt="Figma" class="tool-icon" />
         </div>
         <div class="tool-info">
           <h3>Figma</h3>
@@ -114,7 +114,6 @@ export default {
   color: #222;
 }
 
-/* Shorter Slider */
 .slider-container {
   overflow: hidden;
   width: 100%;
@@ -154,7 +153,6 @@ export default {
   }
 }
 
-/* Tools Section - Simplified Hover */
 .tools-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
