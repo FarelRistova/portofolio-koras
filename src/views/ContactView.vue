@@ -92,7 +92,6 @@ export default {
 
 @media (max-width: 768px) {
   .contact-row {
-    flex-direction: column;
     text-align: center;
   }
 

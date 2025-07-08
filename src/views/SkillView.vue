@@ -14,6 +14,7 @@
         <img src="/assets/vue.svg" alt="Vue" class="skill-logo" />
         <img src="/assets/react.svg" alt="React" class="skill-logo" />
         <img src="/assets/flutter.svg" alt="Flutter" class="skill-logo" />
+        <img src="/assets/dart.svg" alt="dart" class="skill-logo" />
         <img src="/assets/py.svg" alt="Python" class="skill-logo" />
         <img src="/assets/laravel.svg" alt="Laravel" class="skill-logo" />
 
@@ -24,6 +25,7 @@
         <img src="/assets/vue.svg" alt="Vue" class="skill-logo" />
         <img src="/assets/react.svg" alt="React" class="skill-logo" />
         <img src="/assets/flutter.svg" alt="Flutter" class="skill-logo" />
+        <img src="/assets/dart.svg" alt="dart" class="skill-logo" />
         <img src="/assets/py.svg" alt="Python" class="skill-logo" />
         <img src="/assets/laravel.svg" alt="Laravel" class="skill-logo" />
       </div>
@@ -88,6 +90,16 @@
         <div class="tool-info">
           <h3>Figma</h3>
           <p>Alat desain UI/UX yang biasa digunakan untuk membuat prototipe.</p>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon-wrapper">
+          <img src="/assets/vercel.svg" alt="Figma" class="tool-icon" />
+        </div>
+        <div class="tool-info">
+          <h3>Vercel</h3>
+          <p>Website yang di gunakan untuk menghosting projek, dengan dukungan deploy otomatis dari GitHub.</p>
         </div>
       </div>
     </div>

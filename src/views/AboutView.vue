@@ -81,7 +81,6 @@ export default {
   border-radius: 8px;
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin-left: 50px;
 }
 
 /* Responsif */

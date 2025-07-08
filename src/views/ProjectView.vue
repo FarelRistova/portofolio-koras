@@ -81,6 +81,13 @@ export default {
           fullDesc:
             'Aplikasi ini memungkinkan pengguna untuk mengelola stok obat, transaksi penjualan, dan laporan penjualan, serta fitur pencarian obat. Dan juga dilengkapi dengan fitur autentikasi untuk admin dan kasir. By Laravel',
           image: '/assets/apotek1.png'
+        },
+        {
+          title: 'Peminjaman Laptop',
+          shortDesc: 'Aplikasi web untuk manajemen peminjaman laptop dengan efisien.',
+          fullDesc:
+            'Aplikasi ini memudahkan untuk mengelola peminjaman laptop dengan cepat dan mudah. Dilengkapi dengan fitur autentikasi untuk admin dan pengguna. By Laravel',
+          image: '/assets/peminjamanlaptop1.png'
         }
       ]
     };
