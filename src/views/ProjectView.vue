@@ -1,7 +1,7 @@
 <template>
   <section class="project-section" id="project">
     <div class="section-title">
-      <h1>My Projects</h1>
+      <h1>Projects</h1>
       <p>Beberapa proyek yang telah saya kerjakan</p>
     </div>
 
@@ -45,49 +45,49 @@ export default {
           shortDesc: 'Website untuk manajemen peminjaman buku di sekolah.',
           fullDesc:
             'Aplikasi ini membantu siswa meminjam dan mengembalikan buku dengan mudah. Fitur lengkap seperti riwayat, pencarian, dan dashboard admin. By Vue.js',
-          image: '/assets/perpus1.png'
+          image: new URL('../assets/images/perpus1.png', import.meta.url).href
         },
         {
           title: 'Kasir Toko',
           shortDesc: 'Aplikasi kasir berbasis Flutter untuk toko kecil.',
           fullDesc:
             'Mencatat transaksi, menghitung kembalian, menampilkan struk dan manajemen produk. Cocok untuk UMKM.',
-          image: '/assets/kasir1.png'
+          image: new URL('../assets/images/kasir1.png', import.meta.url).href
         },
         {
           title: 'Aplikasi Pengaduan',
           shortDesc: 'Aplikasi web untuk menerima dan menanggapi pengaduan masyarakat.',
           fullDesc:
             'Dilengkapi dengan fitur CRUD laporan, status laporan, dan panel admin untuk tindak lanjut aduan. By Laravel',
-          image: '/assets/pengaduan1.png'
+          image: new URL('../assets/images/pengaduan1.png', import.meta.url).href
         },
         {
           title: 'Aplikasi Todo List',
           shortDesc: 'Aplikasi web untuk mengelola daftar tugas harian atau pun rencana jangka panjang.',
           fullDesc:
             'Dilengkapi dengan fitur penambahan, pengeditan, dan penghapusan tugas, serta penandaan tugas sebagai selesai. By Flutter',
-          image: '/assets/todo1.png'
+          image: new URL('../assets/images/todo1.png', import.meta.url).href
         },
         {
           title: 'Plants App',
           shortDesc: 'Aplikasi web untuk mengelola tanaman dan pertumbuhannya.',
           fullDesc:
             'Dilengkapi dengan fitur penambahan, pengeditan, dan penghapusan, serta penjelasan setiap pertumbuhan. By Laravel',
-          image: '/assets/plants1.png'
+          image: new URL('../assets/images/plants1.png', import.meta.url).href
         },
         {
           title: 'Apotek App',
           shortDesc: 'Aplikasi web untuk manajemen pelayanan apotek.',
           fullDesc:
             'Aplikasi ini memungkinkan pengguna untuk mengelola stok obat, transaksi penjualan, dan laporan penjualan, serta fitur pencarian obat. Dan juga dilengkapi dengan fitur autentikasi untuk admin dan kasir. By Laravel',
-          image: '/assets/apotek1.png'
+          image: new URL('../assets/images/apotek1.png', import.meta.url).href
         },
         {
           title: 'Peminjaman Laptop',
           shortDesc: 'Aplikasi web untuk manajemen peminjaman laptop dengan efisien.',
           fullDesc:
             'Aplikasi ini memudahkan untuk mengelola peminjaman laptop dengan cepat dan mudah. Dilengkapi dengan fitur autentikasi untuk admin dan pengguna. By Laravel',
-          image: '/assets/peminjamanlaptop1.png'
+          image: new URL('../assets/images/peminjamanlaptop1.png', import.meta.url).href
         }
       ]
     };

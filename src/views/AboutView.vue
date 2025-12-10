@@ -9,14 +9,14 @@
           konsisten, dan berfokus pada penguasaan teknologi, saya berkomitmen
           untuk terus berkembang. Berpengalaman sebagai ketua tim, saya mampu
           bekerja sama dengan baik dan memiliki minat besar untuk berkarir
-          sebagai full stack web developer. Ketika waktu luang, saya juga suka
+          sebagai full stack developer. Ketika waktu luang, saya juga suka
           mengisinya dengan hiking, camping, dan lainnya yang berhubungan dengan alam.
         </p>
       </div>
 
       <!-- Kanan: Foto -->
       <div class="about-right">
-        <img src="/assets/pp.jpg" alt="Profile Photo" class="profile-photo" />
+        <img src="../assets/images/pp.jpg" alt="Profile Photo" class="profile-photo" />
       </div>
     </div>
   </section>
@@ -30,6 +30,7 @@ export default {
 
 <style scoped>
 .about-section {
+  font-family: 'Roboto Mono', monospace;
   background-color: #fff;
   padding: 4rem 1rem;
   display: flex;
@@ -44,7 +45,7 @@ export default {
   width: 100%;
   gap: 3rem;
   align-items: center;
-  margin: 50px;
+  margin: 50px auto; /* perbaikan agar tetap center */
 }
 
 .about-left {
@@ -69,21 +70,19 @@ export default {
 
 .about-right {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 2.5rem 0;
 }
 
 .profile-photo {
-  width: 350px;
-  border-radius: 8px;
+  width: 100%;          /* Responsif penuh */
+  max-width: 350px;     /* Batas maksimal */
+  height: auto;         /* Menjaga proporsi foto */
+  border-radius: 12px;
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsif */
+/* Responsif Tablet & HP */
 @media (max-width: 768px) {
   .about-container {
     grid-template-columns: 1fr;
@@ -105,8 +104,16 @@ export default {
   }
 
   .profile-photo {
-    width: 160px;
+    max-width: 220px;  /* Ukuran nyaman untuk HP */
+  }
+}
+
+/* Extra kecil (HP kecil, <480px) */
+@media (max-width: 480px) {
+  .profile-photo {
+    max-width: 180px;
   }
 }
 </style>
+
 

@@ -2,7 +2,7 @@
   <nav class="navbar">
     <div class="navbar-container">
       <div class="navbar-brand">
-        <span class="logo">MyPortfolio</span>
+        <span class="logo">korasdev</span>
         <div class="current-time">{{ currentTime }}</div>
       </div>
       <ul class="nav-links">
@@ -30,8 +30,9 @@ export default {
       links: [
         { name: 'Home', path: '#home' },
         { name: 'About', path: '#about' },
-        { name: 'Skill', path: '#skill' },
-        { name: 'Project', path: '#project' },
+        { name: 'Skills', path: '#skill' },
+        { name: 'Tools', path: '#tool' },
+        { name: 'Projects', path: '#project' },
         { name: 'Contact', path: '#contact' }
       ]
     }
@@ -73,6 +74,7 @@ export default {
 
 <style scoped>
 .navbar {
+  font-family: 'Roboto Mono', monospace;
   position: fixed;
   top: 0;
   left: 0;

@@ -4,7 +4,7 @@
       <!-- Bagian Info Kontak -->
       <div class="contact-group">
         <h2>Contact Me</h2>
-        <p><strong>Phone:</strong> +62 882-9371-9289</p>
+        <p><strong>Phone:</strong> +62 8829 3719289</p>
         <p><strong>Email:</strong> farel.ristova@gmail.com</p>
         <p><strong>Address:</strong> Citayam Bojonggede, Kab.Bogor, Jawa Barat</p>
       </div>
@@ -14,13 +14,13 @@
         <h2>Social Media</h2>
         <div class="social-icons">
           <a href="https://www.instagram.com/ristvrss_" target="_blank" aria-label="Instagram">
-            <img src="/assets/instagram.svg" alt="Instagram" />
+            <img src="../assets/icons/instagram.svg" alt="Instagram" />
           </a>
           <a href="https://www.linkedin.com/in/farelristova77" target="_blank" aria-label="LinkedIn">
-            <img src="/assets/linkedin.svg" alt="LinkedIn" />
+            <img src="../assets/icons/linkedin.svg" alt="LinkedIn" />
           </a>
           <a href="https://github.com/FarelRistova" target="_blank" aria-label="GitHub">
-            <img src="/assets/github.svg" alt="GitHub" />
+            <img src="../assets/icons/github.svg" alt="GitHub" />
           </a>
         </div>
       </div>

@@ -59,13 +59,13 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 .home-wrapper {
+  background: linear-gradient(to bottom, #f8fafc, #eef2f7);
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 2rem;
   box-sizing: border-box;
-  background-color: #f5f5f5;
 }
 
 .home-content {
