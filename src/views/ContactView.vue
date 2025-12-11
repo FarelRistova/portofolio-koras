@@ -38,13 +38,6 @@
 <script>
 export default {
   name: 'ContactView',
-}
-</script>
-
-<!-- use production-safe URLs for icons -->
-<script>
-export default {
-  name: 'ContactView',
   data() {
     return {
       icons: {
