@@ -7,27 +7,13 @@
     <!-- Slider Bahasa Pemrograman -->
     <div class="slider-container">
       <div class="slide-track">
-        <!-- Asli -->
-        <img src="../assets/icons/html.svg" alt="HTML" class="skill-logo" />
-        <img src="../assets/icons/css.svg" alt="CSS" class="skill-logo" />
-        <img src="../assets/icons/js.svg" alt="JavaScript" class="skill-logo" />
-        <img src="../assets/icons/vue.svg" alt="Vue" class="skill-logo" />
-        <img src="../assets/icons/react.svg" alt="React" class="skill-logo" />
-        <img src="../assets/icons/flutter.svg" alt="Flutter" class="skill-logo" />
-        <img src="../assets/icons/dart.svg" alt="dart" class="skill-logo" />
-        <img src="../assets/icons/py.svg" alt="Python" class="skill-logo" />
-        <img src="../assets/icons/laravel.svg" alt="Laravel" class="skill-logo" />
-
-        <!-- Duplikat untuk animasi -->
-        <img src="../assets/icons/html.svg" alt="HTML" class="skill-logo" />
-        <img src="../assets/icons/css.svg" alt="CSS" class="skill-logo" />
-        <img src="../assets/icons/js.svg" alt="JavaScript" class="skill-logo" />
-        <img src="../assets/icons/vue.svg" alt="Vue" class="skill-logo" />
-        <img src="../assets/icons/react.svg" alt="React" class="skill-logo" />
-        <img src="../assets/icons/flutter.svg" alt="Flutter" class="skill-logo" />
-        <img src="../assets/icons/dart.svg" alt="dart" class="skill-logo" />
-        <img src="../assets/icons/py.svg" alt="Python" class="skill-logo" />
-        <img src="../assets/icons/laravel.svg" alt="Laravel" class="skill-logo" />
+        <img
+          v-for="(icon, idx) in doubledIcons"
+          :key="idx"
+          :src="icon"
+          :alt="`icon-${idx}`"
+          class="skill-logo"
+        />
       </div>
     </div>
     
@@ -36,7 +22,29 @@
 
 <script>
 export default {
-  name: 'SkillView'
+  name: 'SkillView',
+  data() {
+    const icons = [
+      new URL('../assets/icons/html.svg', import.meta.url).href,
+      new URL('../assets/icons/css.svg', import.meta.url).href,
+      new URL('../assets/icons/js.svg', import.meta.url).href,
+      new URL('../assets/icons/vue.svg', import.meta.url).href,
+      new URL('../assets/icons/react.svg', import.meta.url).href,
+      new URL('../assets/icons/flutter.svg', import.meta.url).href,
+      new URL('../assets/icons/dart.svg', import.meta.url).href,
+      new URL('../assets/icons/py.svg', import.meta.url).href,
+      new URL('../assets/icons/laravel.svg', import.meta.url).href,
+    ]
+
+    return {
+      icons,
+    }
+  },
+  computed: {
+    doubledIcons() {
+      return this.icons.concat(this.icons)
+    }
+  }
 }
 </script>
 

@@ -8,7 +8,7 @@
     <div class="tools-container">
       <div class="tool-card">
         <div class="tool-icon-wrapper">
-          <img src="../assets/icons/github.svg" alt="GitHub" class="tool-icon" />
+          <img :src="icons.github" alt="GitHub" class="tool-icon" />
         </div>
         <div class="tool-info">
           <h3>GitHub</h3>
@@ -18,7 +18,7 @@
 
       <div class="tool-card">
         <div class="tool-icon-wrapper">
-          <img src="../assets/icons/vscode.svg" alt="VS Code" class="tool-icon" />
+          <img :src="icons.vscode" alt="VS Code" class="tool-icon" />
         </div>
         <div class="tool-info">
           <h3>Visual Studio Code</h3>
@@ -28,7 +28,7 @@
 
       <div class="tool-card">
         <div class="tool-icon-wrapper">
-          <img src="../assets/icons/trello.svg" alt="Trello" class="tool-icon" />
+          <img :src="icons.trello" alt="Trello" class="tool-icon" />
         </div>
         <div class="tool-info">
           <h3>Trello</h3>
@@ -38,7 +38,7 @@
 
       <div class="tool-card">
         <div class="tool-icon-wrapper">
-          <img src="../assets/icons/postman.svg" alt="Postman" class="tool-icon" />
+          <img :src="icons.postman" alt="Postman" class="tool-icon" />
         </div>
         <div class="tool-info">
           <h3>Postman</h3>
@@ -48,7 +48,7 @@
 
       <div class="tool-card">
         <div class="tool-icon-wrapper">
-          <img src="../assets/icons/notion.svg" alt="Notion" class="tool-icon" />
+          <img :src="icons.notion" alt="Notion" class="tool-icon" />
         </div>
         <div class="tool-info">
           <h3>Notion</h3>
@@ -58,7 +58,7 @@
 
       <div class="tool-card">
         <div class="tool-icon-wrapper">
-          <img src="../assets/icons/figma.svg" alt="Figma" class="tool-icon" />
+          <img :src="icons.figma" alt="Figma" class="tool-icon" />
         </div>
         <div class="tool-info">
           <h3>Figma</h3>
@@ -68,7 +68,7 @@
 
       <div class="tool-card">
         <div class="tool-icon-wrapper">
-          <img src="../assets/icons/vercel.svg" alt="Vercel" class="tool-icon" />
+          <img :src="icons.vercel" alt="Vercel" class="tool-icon" />
         </div>
         <div class="tool-info">
           <h3>Vercel</h3>
@@ -81,7 +81,20 @@
 
 <script>
 export default {
-  name: 'SkillView'
+  name: 'ToolView',
+  data() {
+    return {
+      icons: {
+        github: new URL('../assets/icons/github.svg', import.meta.url).href,
+        vscode: new URL('../assets/icons/vscode.svg', import.meta.url).href,
+        trello: new URL('../assets/icons/trello.svg', import.meta.url).href,
+        postman: new URL('../assets/icons/postman.svg', import.meta.url).href,
+        notion: new URL('../assets/icons/notion.svg', import.meta.url).href,
+        figma: new URL('../assets/icons/figma.svg', import.meta.url).href,
+        vercel: new URL('../assets/icons/vercel.svg', import.meta.url).href,
+      }
+    }
+  }
 }
 </script>
 
