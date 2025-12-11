@@ -14,13 +14,13 @@
         <h2>Social Media</h2>
         <div class="social-icons">
           <a href="https://www.instagram.com/ristvrss_" target="_blank" aria-label="Instagram">
-            <img src="../assets/icons/instagram.svg" alt="Instagram" />
+            <img :src="icons.instagram" alt="Instagram" />
           </a>
           <a href="https://www.linkedin.com/in/farelristova77" target="_blank" aria-label="LinkedIn">
-            <img src="../assets/icons/linkedin.svg" alt="LinkedIn" />
+            <img :src="icons.linkedin" alt="LinkedIn" />
           </a>
           <a href="https://github.com/FarelRistova" target="_blank" aria-label="GitHub">
-            <img src="../assets/icons/github.svg" alt="GitHub" />
+            <img :src="icons.github" alt="GitHub" />
           </a>
         </div>
       </div>
@@ -38,6 +38,22 @@
 <script>
 export default {
   name: 'ContactView',
+}
+</script>
+
+<!-- use production-safe URLs for icons -->
+<script>
+export default {
+  name: 'ContactView',
+  data() {
+    return {
+      icons: {
+        instagram: new URL('../assets/icons/instagram.svg', import.meta.url).href,
+        linkedin: new URL('../assets/icons/linkedin.svg', import.meta.url).href,
+        github: new URL('../assets/icons/github.svg', import.meta.url).href,
+      }
+    }
+  }
 }
 </script>
 
