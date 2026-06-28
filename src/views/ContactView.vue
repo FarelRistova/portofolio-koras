@@ -27,7 +27,7 @@
 
       <!-- Bagian Copyright -->
       <div class="contact-group">
-        <h2>© 2025</h2>
+        <h2>© 2026</h2>
         <p>Muhammad Farel Ristova Koras</p>
         <p>All rights reserved.</p>
       </div>
