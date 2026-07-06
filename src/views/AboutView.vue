@@ -5,7 +5,7 @@
       <div class="about-left">
         <h1>About me</h1>
         <p class="about-description">
-          Saya siswa SMK Wikrama Bogor, jurusan Perangkat Lunak dan Gim. Tekun,
+          Saya lulusan SMK Wikrama Bogor, jurusan Perangkat Lunak dan Gim. Tekun,
           konsisten, dan berfokus pada penguasaan teknologi, saya berkomitmen
           untuk terus berkembang. Berpengalaman sebagai ketua tim, saya mampu
           bekerja sama dengan baik dan memiliki minat besar untuk berkarir
