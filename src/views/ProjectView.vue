@@ -6,14 +6,9 @@
     </div>
 
     <div class="projects">
-      <div
-        class="project-card"
-        v-for="(project, index) in projects"
-        :key="project.title"
-        :class="{ reverse: index % 2 !== 0 }"
-        @click="openModal(project)"
-      >
+      <div class="project-card" v-for="project in projects" :key="project.title" @click="openModal(project)">
         <img :src="project.image" :alt="project.title" class="project-image" />
+
         <div class="project-info">
           <h3>{{ project.title }}</h3>
           <p>{{ project.shortDesc }}</p>
@@ -123,62 +118,61 @@ export default {
   margin-bottom: 3rem;
 }
 
+/* ===== PROJECT GRID ===== */
+
 .projects {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
 .project-card {
-  display: flex;
-  align-items: center;
-  gap: 3rem;
   background: #ffffff;
-  padding: 2rem 2.5rem;
   border-radius: 16px;
-  max-width: 900px;
-  width: 100%;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
   cursor: pointer;
   text-align: left;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.1);
-}
-
-.project-card.reverse {
-  flex-direction: row-reverse;
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
 }
 
 .project-image {
-  width: 280px;
-  height: auto;
-  border-radius: 12px;
-  object-fit: cover;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform .35s ease;
 }
 
 .project-info {
+  padding: 1.5rem;
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-info h3 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 600;
-  margin: 0 0 0.75rem;
+  margin-bottom: 0.8rem;
   color: #1f2937;
 }
 
 .project-info p {
-  font-size: 1.05rem;
-  color: #4b5563;
-  margin: 0;
-  line-height: 1.6;
+  font-size: 1rem;
+  color: #6b7280;
+  line-height: 1.7;
 }
+
+/* ===== MODAL ===== */
 
 .modal-overlay {
   position: fixed;
@@ -198,7 +192,7 @@ export default {
   background: #ffffff;
   padding: 2.5rem;
   border-radius: 16px;
-  max-width: 600px;
+  max-width: 650px;
   width: 100%;
   text-align: center;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
@@ -210,6 +204,7 @@ export default {
     opacity: 0;
     transform: scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -220,15 +215,15 @@ export default {
   width: 100%;
   border-radius: 12px;
   margin: 1rem 0 1.5rem;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
 .modal-content button {
   margin-top: 1rem;
-  background-color: #4f46e5;
-  color: white;
+  background: #4f46e5;
+  color: #fff;
   border: none;
-  padding: 0.8rem 1.6rem;
+  padding: 0.85rem 1.7rem;
   font-size: 1rem;
   border-radius: 8px;
   cursor: pointer;
@@ -236,24 +231,40 @@ export default {
 }
 
 .modal-content button:hover {
-  background-color: #4338ca;
+  background: #4338ca;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 992px) {
+  .projects {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
 }
 
 @media (max-width: 768px) {
-  .project-card {
-    flex-direction: column;
-    text-align: center;
-    padding: 1.5rem;
-    gap: 1.5rem;
+  .project-section {
+    padding: 5rem 1.5rem;
   }
 
-  .project-card.reverse {
-    flex-direction: column;
+  .section-title h1 {
+    font-size: 2.2rem;
+  }
+
+  .section-title p {
+    font-size: 1rem;
+  }
+
+  .projects {
+    grid-template-columns: 1fr;
   }
 
   .project-image {
-    width: 100%;
-    max-height: 200px;
+    height: 200px;
+  }
+
+  .project-info {
+    text-align: center;
   }
 
   .project-info h3 {
@@ -261,7 +272,7 @@ export default {
   }
 
   .project-info p {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .modal-content {
