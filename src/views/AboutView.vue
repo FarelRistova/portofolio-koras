@@ -5,12 +5,12 @@
       <div class="about-left">
         <h1>About me</h1>
         <p class="about-description">
-          Saya lulusan SMK Wikrama Bogor, jurusan Perangkat Lunak dan Gim. Tekun,
-          konsisten, dan berfokus pada penguasaan teknologi, saya berkomitmen
-          untuk terus berkembang. Berpengalaman sebagai ketua tim, saya mampu
-          bekerja sama dengan baik dan memiliki minat besar untuk berkarir
-          sebagai full stack developer. Ketika waktu luang, saya juga suka
-          mengisinya dengan hiking, camping, dan lainnya yang berhubungan dengan alam.
+          Full Stack Engineer dan Freelance Web Developer dengan fondasi Rekayasa Perangkat Lunak dari SMK Wikrama Bogor
+          dan mahasiswa S1 Sistem Informasi di Universitas Bina Sarana Informatika.
+          Berpengalaman mengembangkan aplikasi web dan company profile menggunakan Laravel, Vue.js, PHP, dan MySQL.
+          Terampil dalam manajemen database, integrasi API, debugging, hingga proses deployment dan pengelolaan server.
+          Siap berkontribusi menciptakan produk digital yang andal dan berdampak.
+
         </p>
       </div>
 
@@ -45,7 +45,8 @@ export default {
   width: 100%;
   gap: 3rem;
   align-items: center;
-  margin: 50px auto; /* perbaikan agar tetap center */
+  margin: 50px auto;
+  /* perbaikan agar tetap center */
 }
 
 .about-left {
@@ -74,12 +75,16 @@ export default {
 }
 
 .profile-photo {
-  width: 100%;          /* Responsif penuh */
-  max-width: 350px;     /* Batas maksimal */
-  height: auto;         /* Menjaga proporsi foto */
+  width: 100%;
+  /* Responsif penuh */
+  max-width: 350px;
+  /* Batas maksimal */
+  height: auto;
+  /* Menjaga proporsi foto */
   border-radius: 12px;
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-left: 24px;
 }
 
 /* Responsif Tablet & HP */
@@ -104,7 +109,9 @@ export default {
   }
 
   .profile-photo {
-    max-width: 220px;  /* Ukuran nyaman untuk HP */
+    max-width: 220px;
+    /* Ukuran nyaman untuk HP */
+    margin-left: 0;
   }
 }
 
@@ -115,5 +122,3 @@ export default {
   }
 }
 </style>
-
-

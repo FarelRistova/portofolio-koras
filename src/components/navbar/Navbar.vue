@@ -5,7 +5,19 @@
         <span class="logo">korasdev</span>
         <div class="current-time">{{ currentTime }}</div>
       </div>
-      <ul class="nav-links">
+      <button
+        class="menu-toggle"
+        type="button"
+        :aria-expanded="mobileMenuOpen"
+        aria-controls="main-navigation"
+        aria-label="Toggle navigation menu"
+        @click="mobileMenuOpen = !mobileMenuOpen"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul id="main-navigation" class="nav-links" :class="{ 'is-open': mobileMenuOpen }">
         <li v-for="(link, index) in links" :key="index">
           <a 
             :href="link.path" 
@@ -27,6 +39,8 @@ export default {
     return {
       currentTime: '',
       activeSection: 'home',
+      mobileMenuOpen: false,
+      timeInterval: null,
       links: [
         { name: 'Home', path: '#home' },
         { name: 'About', path: '#about' },
@@ -39,11 +53,12 @@ export default {
   },
   mounted() {
     this.updateTime();
-    setInterval(this.updateTime, 1000);
+    this.timeInterval = setInterval(this.updateTime, 1000);
     window.addEventListener('scroll', this.onScroll);
     this.onScroll();
   },
   beforeUnmount() {
+    clearInterval(this.timeInterval);
     window.removeEventListener('scroll', this.onScroll);
   },
   methods: {
@@ -53,6 +68,7 @@ export default {
     },
     setActive(section) {
       this.activeSection = section;
+      this.mobileMenuOpen = false;
     },
     onScroll() {
       const scrollPosition = window.scrollY + 100;
@@ -159,6 +175,41 @@ export default {
   font-weight: 500;
 }
 
+.menu-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  padding: 0.65rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  background: #fff;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: #222;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.menu-toggle[aria-expanded='true'] span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded='true'] span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle[aria-expanded='true'] span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
 /* Responsive adjustments */
 @media (max-width: 1024px) {
   .navbar-container {
@@ -168,23 +219,48 @@ export default {
 
 @media (max-width: 768px) {
   .navbar-container {
-    flex-direction: column;
+    position: relative;
     padding: 1.2rem 1rem;
   }
 
   .navbar-brand {
-    width: 100%;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
+    gap: 0.75rem;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .current-time {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.65rem;
+  }
+
+  .menu-toggle {
+    display: flex;
   }
 
   .nav-links {
-    width: 100%;
-    justify-content: space-around;
-    gap: 0.5rem;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem 1rem 0.75rem;
+    background: rgba(255, 255, 255, 0.98);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 8px 14px rgba(0, 0, 0, 0.08);
+  }
+
+  .nav-links.is-open {
+    display: flex;
   }
 
   .nav-links a {
+    display: block;
+    padding: 0.8rem 0.25rem;
     font-size: 0.95rem;
   }
 }

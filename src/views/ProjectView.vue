@@ -20,7 +20,22 @@
     <div v-if="selectedProject" class="modal-overlay" @click.self="closeModal">
       <div class="modal-content">
         <h2>{{ selectedProject.title }}</h2>
-        <img :src="selectedProject.image" class="modal-image" />
+        <div v-if="selectedProject.images" class="modal-slider">
+          <button type="button" class="slider-button slider-button-prev" aria-label="Gambar sebelumnya"
+            @click="previousImage">
+            &#8249;
+          </button>
+
+          <img :src="selectedProject.images[selectedImageIndex]"
+            :alt="`${selectedProject.title} - gambar ${selectedImageIndex + 1}`" class="modal-image" />
+
+          <button type="button" class="slider-button slider-button-next" aria-label="Gambar berikutnya"
+            @click="nextImage">
+            &#8250;
+          </button>
+
+        </div>
+        <img v-else :src="selectedProject.image" :alt="selectedProject.title" class="modal-image" />
         <p>{{ selectedProject.fullDesc }}</p>
         <button @click="closeModal">Tutup</button>
       </div>
@@ -34,7 +49,25 @@ export default {
   data() {
     return {
       selectedProject: null,
+      selectedImageIndex: 0,
       projects: [
+        {
+          title: 'Nigma Administrasi',
+          shortDesc: 'Sistem administrasi web untuk efisiensi operasional internal perusahaan.',
+          fullDesc:
+            'Mengembangkan sistem administrasi berbasis web untuk efisiensi operasional internal perusahaan. Membangun modul manajemen data master (klien, perusahaan mitra, karyawan, dan pengeluaran), sistem Role & Access Control, serta fitur otomatisasi pembuatan hingga pencetakan dokumen bisnis seperti Quotation, Tanda Terima, dan Job Order menggunakan Laravel, Vue.js, Inertia.js, dan MySQL.',
+          image: new URL('../assets/images/nigma-administrasi/1.png', import.meta.url).href,
+          images: [
+            new URL('../assets/images/nigma-administrasi/1.png', import.meta.url).href,
+            new URL('../assets/images/nigma-administrasi/2.png', import.meta.url).href,
+            new URL('../assets/images/nigma-administrasi/3.png', import.meta.url).href,
+            new URL('../assets/images/nigma-administrasi/4.png', import.meta.url).href,
+            new URL('../assets/images/nigma-administrasi/5.png', import.meta.url).href,
+            new URL('../assets/images/nigma-administrasi/6.png', import.meta.url).href,
+            new URL('../assets/images/nigma-administrasi/7.png', import.meta.url).href,
+            new URL('../assets/images/nigma-administrasi/8.png', import.meta.url).href
+          ]
+        },
         {
           title: 'Website Perpustakaan',
           shortDesc: 'Website untuk manajemen peminjaman buku di sekolah.',
@@ -90,9 +123,19 @@ export default {
   methods: {
     openModal(project) {
       this.selectedProject = project;
+      this.selectedImageIndex = 0;
     },
     closeModal() {
       this.selectedProject = null;
+      this.selectedImageIndex = 0;
+    },
+    previousImage() {
+      const total = this.selectedProject.images.length;
+      this.selectedImageIndex = (this.selectedImageIndex - 1 + total) % total;
+    },
+    nextImage() {
+      const total = this.selectedProject.images.length;
+      this.selectedImageIndex = (this.selectedImageIndex + 1) % total;
     }
   }
 };
@@ -146,9 +189,10 @@ export default {
 }
 
 .project-image {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 220px;
   object-fit: contain;
+  background: #f8fafc;
   transition: transform .35s ease;
 }
 
@@ -218,6 +262,72 @@ export default {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
+.modal-slider {
+  position: relative;
+  margin: 1rem 0 1.5rem;
+}
+
+.modal-slider .modal-image {
+  display: block;
+  height: 430px;
+  object-fit: contain;
+  background: #f8fafc;
+  margin: 0;
+}
+
+.slider-button {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(17, 24, 39, 0.78);
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: background 0.2s ease;
+}
+
+.slider-button:hover {
+  background: #4f46e5;
+}
+
+.slider-button-prev {
+  left: 12px;
+}
+
+.slider-button-next {
+  right: 12px;
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #cbd5e1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.slider-dot.active {
+  width: 24px;
+  border-radius: 999px;
+  background: #4f46e5;
+}
+
 .modal-content button {
   margin-top: 1rem;
   background: #4f46e5;
@@ -277,6 +387,15 @@ export default {
 
   .modal-content {
     padding: 1.8rem;
+  }
+
+  .modal-slider .modal-image {
+    height: 280px;
+  }
+
+  .slider-button {
+    width: 36px;
+    height: 36px;
   }
 }
 </style>
