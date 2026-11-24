@@ -20,23 +20,22 @@
     <div v-if="selectedProject" class="modal-overlay" @click.self="closeModal">
       <div class="modal-content">
         <h2>{{ selectedProject.title }}</h2>
-        <div v-if="selectedProject.images" class="modal-slider">
-          <button type="button" class="slider-button slider-button-prev" aria-label="Gambar sebelumnya"
-            @click="previousImage">
-            &#8249;
-          </button>
 
+        <!-- Slider tanpa tombol navigasi -->
+        <div v-if="selectedProject.images" class="modal-slider">
           <img :src="selectedProject.images[selectedImageIndex]"
             :alt="`${selectedProject.title} - gambar ${selectedImageIndex + 1}`" class="modal-image" />
 
-          <button type="button" class="slider-button slider-button-next" aria-label="Gambar berikutnya"
-            @click="nextImage">
-            &#8250;
-          </button>
-
+          <div class="image-counter">
+            {{ selectedImageIndex + 1 }} /
+            {{ selectedProject.images.length }}
+          </div>
         </div>
+
         <img v-else :src="selectedProject.image" :alt="selectedProject.title" class="modal-image" />
+
         <p>{{ selectedProject.fullDesc }}</p>
+
         <button @click="closeModal">Tutup</button>
       </div>
     </div>
@@ -46,10 +45,13 @@
 <script>
 export default {
   name: 'ProjectView',
+
   data() {
     return {
       selectedProject: null,
       selectedImageIndex: 0,
+      sliderInterval: null,
+
       projects: [
         {
           title: 'Nigma Administrasi',
@@ -66,6 +68,40 @@ export default {
             new URL('../assets/images/nigma-administrasi/6.png', import.meta.url).href,
             new URL('../assets/images/nigma-administrasi/7.png', import.meta.url).href,
             new URL('../assets/images/nigma-administrasi/8.png', import.meta.url).href
+          ]
+        },
+        {
+          title: 'Inventory Management System',
+          shortDesc: 'Sistem manajemen inventaris berbasis web untuk sekolah.',
+          fullDesc:
+            'Aplikasi inventaris berbasis web yang dibangun dengan Laravel ini mempermudah pengelolaan, pencatatan, dan pemantauan aset secara terpusat dan real-time. Dilengkapi fitur peminjaman barang serta pembagian hak akses (role access) untuk Admin dan Staff, sistem ini menggantikan proses manual menjadi lebih efisien, terstruktur, dan transparan.',
+          image: new URL('../assets/images/inventaris/1.png', import.meta.url).href,
+          images: [
+            new URL('../assets/images/inventaris/1.png', import.meta.url).href,
+            new URL('../assets/images/inventaris/2.png', import.meta.url).href,
+            new URL('../assets/images/inventaris/3.png', import.meta.url).href,
+            new URL('../assets/images/inventaris/4.png', import.meta.url).href,
+            new URL('../assets/images/inventaris/5.png', import.meta.url).href,
+            new URL('../assets/images/inventaris/6.png', import.meta.url).href,
+            new URL('../assets/images/inventaris/7.png', import.meta.url).href,
+            new URL('../assets/images/inventaris/8.png', import.meta.url).href,
+            new URL('../assets/images/inventaris/9.png', import.meta.url).href,
+            new URL('../assets/images/inventaris/10.png', import.meta.url).href,
+          ]
+        },
+        {
+          title: 'MyBook',
+          shortDesc: 'Aplikasi untuk menyimpan dan mengelola koleksi buku pribadi.',
+          fullDesc:
+            'Aplikasi ini memungkinkan pengguna untuk menyimpan, mengelola, dan melacak koleksi buku pribadi mereka. Dilengkapi dengan fitur pencarian, kategori, dan penandaan status baca. By Vue.js',
+          image: new URL('../assets/images/book-app/1.png', import.meta.url).href,
+          images: [
+            new URL('../assets/images/book-app/1.png', import.meta.url).href,
+            new URL('../assets/images/book-app/2.png', import.meta.url).href,
+            new URL('../assets/images/book-app/3.png', import.meta.url).href,
+            new URL('../assets/images/book-app/4.png', import.meta.url).href,
+            new URL('../assets/images/book-app/5.png', import.meta.url).href,
+            new URL('../assets/images/book-app/6.png', import.meta.url).href,
           ]
         },
         {
@@ -120,28 +156,47 @@ export default {
       ]
     };
   },
+
   methods: {
     openModal(project) {
+      this.stopSlider();
+
       this.selectedProject = project;
       this.selectedImageIndex = 0;
+
+      // Slider otomatis setiap 3 detik
+      if (project.images && project.images.length > 1) {
+        this.sliderInterval = setInterval(() => {
+          this.selectedImageIndex =
+            (this.selectedImageIndex + 1) % project.images.length;
+        }, 3000);
+      }
     },
+
     closeModal() {
+      this.stopSlider();
+
       this.selectedProject = null;
       this.selectedImageIndex = 0;
     },
-    previousImage() {
-      const total = this.selectedProject.images.length;
-      this.selectedImageIndex = (this.selectedImageIndex - 1 + total) % total;
-    },
-    nextImage() {
-      const total = this.selectedProject.images.length;
-      this.selectedImageIndex = (this.selectedImageIndex + 1) % total;
+
+    stopSlider() {
+      if (this.sliderInterval) {
+        clearInterval(this.sliderInterval);
+        this.sliderInterval = null;
+      }
     }
+  },
+
+  beforeUnmount() {
+    this.stopSlider();
   }
 };
 </script>
 
 <style scoped>
+/* ===== PROJECT SECTION ===== */
+
 .project-section {
   background: linear-gradient(to bottom, #f8fafc, #eef2f7);
   padding: 6rem 2rem;
@@ -192,8 +247,8 @@ export default {
   width: 100%;
   height: 220px;
   object-fit: contain;
-  background: #f8fafc;
-  transition: transform .35s ease;
+  background: #e5e7eb;
+  transition: transform 0.35s ease;
 }
 
 .project-info {
@@ -220,8 +275,7 @@ export default {
 
 .modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   background: rgba(30, 41, 59, 0.7);
@@ -230,6 +284,7 @@ export default {
   align-items: center;
   z-index: 999;
   padding: 1rem;
+  overflow-y: auto;
 }
 
 .modal-content {
@@ -241,6 +296,11 @@ export default {
   text-align: center;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
   animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content h2 {
+  color: #1f2937;
+  margin-bottom: 1rem;
 }
 
 @keyframes fadeIn {
@@ -255,6 +315,8 @@ export default {
   }
 }
 
+/* ===== MODAL IMAGE ===== */
+
 .modal-image {
   width: 100%;
   border-radius: 12px;
@@ -262,71 +324,49 @@ export default {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
+/* ===== IMAGE SLIDER ===== */
+
 .modal-slider {
   position: relative;
   margin: 1rem 0 1.5rem;
+  background: #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .modal-slider .modal-image {
   display: block;
+  width: 100%;
   height: 430px;
   object-fit: contain;
-  background: #f8fafc;
+  background: #e5e7eb;
   margin: 0;
+  border-radius: 12px;
+  box-shadow: none;
 }
 
-.slider-button {
+/* Image counter */
+
+.image-counter {
   position: absolute;
-  top: 50%;
-  z-index: 2;
-  width: 42px;
-  height: 42px;
-  border: none;
-  border-radius: 50%;
-  background: rgba(17, 24, 39, 0.78);
-  color: #fff;
-  font-size: 2rem;
-  line-height: 1;
-  cursor: pointer;
-  transform: translateY(-50%);
-  transition: background 0.2s ease;
-}
-
-.slider-button:hover {
-  background: #4f46e5;
-}
-
-.slider-button-prev {
-  left: 12px;
-}
-
-.slider-button-next {
+  bottom: 12px;
   right: 12px;
+  background: rgba(31, 41, 55, 0.75);
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
 }
 
-.slider-dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 12px;
+/* ===== MODAL DESCRIPTION ===== */
+
+.modal-content p {
+  color: #6b7280;
+  line-height: 1.7;
+  text-align: left;
 }
 
-.slider-dot {
-  width: 10px;
-  height: 10px;
-  padding: 0;
-  border: none;
-  border-radius: 50%;
-  background: #cbd5e1;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.slider-dot.active {
-  width: 24px;
-  border-radius: 999px;
-  background: #4f46e5;
-}
+/* ===== CLOSE BUTTON ===== */
 
 .modal-content button {
   margin-top: 1rem;
@@ -386,16 +426,21 @@ export default {
   }
 
   .modal-content {
-    padding: 1.8rem;
+    padding: 1.5rem;
   }
 
   .modal-slider .modal-image {
     height: 280px;
   }
+}
 
-  .slider-button {
-    width: 36px;
-    height: 36px;
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 1rem;
+  }
+
+  .modal-slider .modal-image {
+    height: 230px;
   }
 }
 </style>

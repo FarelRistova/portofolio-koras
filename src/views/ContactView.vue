@@ -13,9 +13,9 @@
       <div class="contact-group">
         <h2>Social Media</h2>
         <div class="social-icons">
-          <a href="https://www.instagram.com/ristvrss_" target="_blank" aria-label="Instagram">
+          <!-- <a href="https://www.instagram.com/ristvrss_" target="_blank" aria-label="Instagram">
             <img :src="icons.instagram" alt="Instagram" />
-          </a>
+          </a> -->
           <a href="https://www.linkedin.com/in/farelristova77" target="_blank" aria-label="LinkedIn">
             <img :src="icons.linkedin" alt="LinkedIn" />
           </a>
