@@ -4,9 +4,9 @@
       <!-- Bagian Info Kontak -->
       <div class="contact-group">
         <h2>Contact Me</h2>
-        <p><strong>Phone:</strong> +62 8829 3719289</p>
+        <p><strong>Phone:</strong> +62895383151914</p>
         <p><strong>Email:</strong> farel.ristova@gmail.com</p>
-        <p><strong>Address:</strong> Citayam Bojonggede, Kab.Bogor, Jawa Barat</p>
+        <p><strong>Address:</strong> Bojonggede, Kab.Bogor, Jawa Barat</p>
       </div>
 
       <!-- Bagian Sosial Media -->
