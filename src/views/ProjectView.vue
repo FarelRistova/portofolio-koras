@@ -93,7 +93,7 @@ export default {
           title: 'MyBook',
           shortDesc: 'Aplikasi untuk menyimpan dan mengelola koleksi buku pribadi.',
           fullDesc:
-            'Aplikasi ini memungkinkan pengguna untuk menyimpan, mengelola, dan melacak koleksi buku pribadi mereka. Dilengkapi dengan fitur pencarian, kategori, dan penandaan status baca. By Vue.js',
+            'Aplikasi ini memungkinkan pengguna untuk menyimpan, mengelola, dan melacak koleksi buku pribadi mereka. Dilengkapi dengan fitur pencarian, kategori, dan penandaan status baca. Di bangun menggunakan laravel dan postgreSQL sebagai database.',
           image: new URL('../assets/images/book-app/1.png', import.meta.url).href,
           images: [
             new URL('../assets/images/book-app/1.png', import.meta.url).href,
@@ -108,7 +108,7 @@ export default {
           title: 'Website Perpustakaan',
           shortDesc: 'Website untuk manajemen peminjaman buku di sekolah.',
           fullDesc:
-            'Aplikasi ini membantu siswa meminjam dan mengembalikan buku dengan mudah. Fitur lengkap seperti riwayat, pencarian, dan dashboard admin. By Vue.js',
+            'Aplikasi ini membantu siswa meminjam dan mengembalikan buku dengan mudah. Fitur lengkap seperti riwayat, pencarian, dan dashboard admin. By Laravel',
           image: new URL('../assets/images/perpus1.png', import.meta.url).href
         },
         {
