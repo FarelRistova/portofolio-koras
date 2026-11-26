@@ -105,6 +105,21 @@ export default {
           ]
         },
         {
+          title: 'Nigma - Compro',
+          shortDesc: 'Website company profile yang memiliki 2 bagian frontend dan backend.',
+          fullDesc:
+            'Website company profile dinamis yang terdiri dari sisi Frontend (tampilan publik yang responsif dan modern untuk pengunjung) serta sisi Backend (dashboard admin untuk mengelola dan memperbarui seluruh konten website secara mandiri dan efisien).',
+          image: new URL('../assets/images/nigma-compro/1.png', import.meta.url).href,
+          images: [
+            new URL('../assets/images/nigma-compro/1.png', import.meta.url).href,
+            new URL('../assets/images/nigma-compro/2.png', import.meta.url).href,
+            new URL('../assets/images/nigma-compro/3.png', import.meta.url).href,
+            new URL('../assets/images/nigma-compro/4.png', import.meta.url).href,
+            new URL('../assets/images/nigma-compro/5.png', import.meta.url).href,
+            new URL('../assets/images/nigma-compro/6.png', import.meta.url).href,
+          ]
+        },
+        {
           title: 'Website Perpustakaan',
           shortDesc: 'Website untuk manajemen peminjaman buku di sekolah.',
           fullDesc:
